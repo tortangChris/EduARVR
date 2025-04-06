@@ -5,17 +5,32 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "edu-arvr",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera for AR and scanning.",
+        "NSMicrophoneUsageDescription": "This app uses the microphone for audio features."
+      }
     },
     "android": {
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "INTERNET",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yourname.eduarvr"
     },
     "web": {
       "bundler": "metro",
@@ -24,6 +39,8 @@
     },
     "plugins": [
       "expo-router",
+      "expo-camera",
+      "expo-av",
       [
         "expo-splash-screen",
         {
@@ -36,6 +53,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1f087675-f9e4-4e73-afa0-ee612e9ea6f9"
+      }
     }
   }
 }
