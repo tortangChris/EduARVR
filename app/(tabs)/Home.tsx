@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const HomePage = () => {
   const navigation = useNavigation();
-  const progressPercentage = 100; // Example progress percentage (you can dynamically change this)
+  const progressPercentage = 100;
 
   return (
     <View style={styles.container}>
@@ -57,6 +58,9 @@ const HomePage = () => {
       {/* Recent Activity */}
       <View style={styles.activityContainer}>
         <Text style={styles.activityTitle}>Recent Activity</Text>
+        <View style={styles.divider} />
+
+        {/* Sample completed activity */}
         <View style={styles.activityItem}>
           <Image
             source={{ uri: "https://via.placeholder.com/40" }}
@@ -68,8 +72,26 @@ const HomePage = () => {
             </Text>
             <Text style={styles.activitySub}>Completed</Text>
           </View>
-          <Text style={styles.arrow}>➡️</Text>
+          <IconSymbol name="arrow.right" color="#22C55E" size={20} />
         </View>
+
+        {/* Empty activity placeholders */}
+        {[1, 2, 3].map((_, index) => (
+          <View
+            key={index}
+            style={[styles.activityItem, { opacity: 0.5, marginTop: 12 }]}
+          >
+            <Image
+              source={{ uri: "https://via.placeholder.com/40" }}
+              style={styles.activityImage}
+            />
+            <View style={styles.activityText}>
+              <Text style={styles.activityHeading}>---</Text>
+              <Text style={styles.activitySub}>--</Text>
+            </View>
+            {/* <IconSymbol name="arrow.right" color="#D1D5DB" size={20} /> */}
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -154,7 +176,7 @@ const styles = StyleSheet.create({
   quickStartTitle: {
     color: "#4B5563",
     fontWeight: "600",
-    marginBottom: 8,
+    marginBottom: 10,
   },
   quickStartGrid: {
     flexDirection: "row",
@@ -166,7 +188,7 @@ const styles = StyleSheet.create({
     width: "48%",
     backgroundColor: "#E5E7EB",
     borderRadius: 12,
-    padding: 25,
+    padding: 20,
     marginBottom: 12,
     alignItems: "center",
   },
@@ -204,5 +226,10 @@ const styles = StyleSheet.create({
   arrow: {
     fontSize: 20,
     color: "#22C55E",
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#D1D5DB",
+    marginVertical: 8,
   },
 });

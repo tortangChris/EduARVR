@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     marginTop: 36,
     backgroundColor: "#F3F4F6",
     flex: 1,
+    paddingBottom: 24, // Added bottom padding to avoid overlap
   },
   header: {
     fontSize: 20,

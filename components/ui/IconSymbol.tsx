@@ -13,6 +13,7 @@ const MAPPING = {
   "paperplane.fill": "send",
   "chevron.left.forwardslash.chevron.right": "code",
   "chevron.right": "chevron-right",
+  "arrow.right": "arrow-forward",
 
   "book.fill": "menu-book",
   "checkmark.seal.fill": "verified", // or use 'check-circle'
