@@ -1,7 +1,27 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, Image, Alert, Button } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Camera } from "expo-camera";
 
 const Lessons = () => {
+  const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
+      setHasPermission(status === "granted");
+    })();
+  }, []);
+
+  const handleTestCamera = () => {
+    if (hasPermission === null) {
+      Alert.alert("Camera", "Still checking permissions...");
+    } else if (hasPermission === false) {
+      Alert.alert("Camera", "Permission denied. Please allow camera access.");
+    } else {
+      Alert.alert("Camera", "Camera permission granted ✅");
+    }
+  };
+
   const lessonData = [
     {
       title: "Introduction to Algorithms",
@@ -36,6 +56,8 @@ const Lessons = () => {
           </View>
         </View>
       ))}
+
+      <Button title="Test Camera Permission" onPress={handleTestCamera} />
     </View>
   );
 };

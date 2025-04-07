@@ -15,7 +15,6 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#9047FF",
-
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -32,7 +31,7 @@ export default function TabLayout() {
         name="Home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color }: { color: string }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
         }}
@@ -41,7 +40,7 @@ export default function TabLayout() {
         name="Lessons"
         options={{
           title: "Lessons",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color }: { color: string }) => (
             <IconSymbol size={28} name="book.fill" color={color} />
           ),
         }}
@@ -50,7 +49,7 @@ export default function TabLayout() {
         name="Assessment"
         options={{
           title: "Assessment",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color }: { color: string }) => (
             <IconSymbol size={28} name="checkmark.seal.fill" color={color} />
           ),
         }}
@@ -59,7 +58,7 @@ export default function TabLayout() {
         name="Profile"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color }: { color: string }) => (
             <IconSymbol size={28} name="person.crop.circle" color={color} />
           ),
         }}

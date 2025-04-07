@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const HomePage = () => {
   const navigation = useNavigation();
+  const progressPercentage = 100; // Example progress percentage (you can dynamically change this)
 
   return (
     <View style={styles.container}>
@@ -21,10 +22,15 @@ const HomePage = () => {
       <View style={styles.progressSection}>
         <Text style={styles.progressTitle}>Overall Progress</Text>
         <View style={styles.progressContent}>
-          {/* Static Progress Circle */}
+          {/* Dashed Progress Circle */}
           <View style={styles.circleContainer}>
-            <View style={styles.circle}>
-              <Text style={styles.circleText}>0%</Text>
+            <View
+              style={[
+                styles.circle,
+                { borderTopColor: getDashColor(progressPercentage) },
+              ]}
+            >
+              <Text style={styles.circleText}>{progressPercentage}%</Text>
             </View>
           </View>
 
@@ -67,6 +73,16 @@ const HomePage = () => {
       </View>
     </View>
   );
+};
+
+// Function to dynamically set dashed border color based on progress
+const getDashColor = (percentage: number) => {
+  if (percentage < 50) {
+    return "#F87171"; // Red if less than 50%
+  } else if (percentage < 80) {
+    return "#FBBF24"; // Yellow if between 50% and 80%
+  }
+  return "#34D399"; // Green if 80% or more
 };
 
 export default HomePage;
@@ -116,7 +132,8 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    borderWidth: 2,
+    borderWidth: 4,
+    borderStyle: "dashed",
     borderColor: "#E5E7EB",
     justifyContent: "center",
     alignItems: "center",
