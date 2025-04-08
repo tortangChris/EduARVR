@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, Alert, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Camera } from "expo-camera";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const Lessons = () => {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
@@ -52,7 +53,7 @@ const Lessons = () => {
               <Text style={styles.lessonTitle}>{lesson.title}</Text>
               <Text style={styles.lessonStatus}>{lesson.status}</Text>
             </View>
-            <Text style={styles.arrow}>➡️</Text>
+            <IconSymbol name="arrow.right" color="#22C55E" size={20} />
           </View>
         </View>
       ))}

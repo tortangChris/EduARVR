@@ -19,6 +19,8 @@ const HomePage = () => {
         </TouchableOpacity>
       </View>
 
+      <View style={styles.divider} />
+
       {/* Progress Section */}
       <View style={styles.progressSection}>
         <Text style={styles.progressTitle}>Overall Progress</Text>
@@ -45,6 +47,8 @@ const HomePage = () => {
         </View>
       </View>
 
+      <View style={styles.divider} />
+
       {/* Quick Start */}
       <Text style={styles.quickStartTitle}>Quick Start</Text>
       <View style={styles.quickStartGrid}>
@@ -54,6 +58,8 @@ const HomePage = () => {
           </View>
         ))}
       </View>
+
+      <View style={styles.divider} />
 
       {/* Recent Activity */}
       <View style={styles.activityContainer}>
@@ -76,7 +82,7 @@ const HomePage = () => {
         </View>
 
         {/* Empty activity placeholders */}
-        {[1, 2, 3].map((_, index) => (
+        {[1, 2, 3, 4].map((_, index) => (
           <View
             key={index}
             style={[styles.activityItem, { opacity: 0.5, marginTop: 12 }]}
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: 6,
   },
   title: {
     fontSize: 24,
@@ -135,6 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 20,
     marginBottom: 16,
+    marginTop: 6,
   },
   progressTitle: {
     color: "white",
