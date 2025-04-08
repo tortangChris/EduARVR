@@ -59,8 +59,6 @@ const HomePage = () => {
         ))}
       </View>
 
-      <View style={styles.divider} />
-
       {/* Recent Activity */}
       <View style={styles.activityContainer}>
         <Text style={styles.activityTitle}>Recent Activity</Text>
@@ -126,10 +124,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 6,
+    marginBottom: 12,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
   settingsText: {
@@ -204,6 +202,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginTop: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
   },
   activityTitle: {
     fontWeight: "600",

@@ -7,6 +7,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const Assessment = () => {
   const challenges = [
@@ -36,15 +37,18 @@ const Assessment = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Interactive Assessment</Text>
+
+      <View style={styles.divider} />
+
       {challenges.map((challenge, index) => (
         <View key={index} style={styles.card}>
           <View style={styles.cardContent}>
-            <View style={styles.imageWrapper}>
+            {/* <View style={styles.imageWrapper}>
               <Image
                 source={{ uri: "https://via.placeholder.com/40" }}
                 style={styles.image}
               />
-            </View>
+            </View> */}
             <View style={styles.textContainer}>
               <Text style={styles.title}>{challenge.title}</Text>
               <Text style={styles.subtitle}>{challenge.subtitle}</Text>
@@ -54,7 +58,7 @@ const Assessment = () => {
             </View>
           </View>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Start Challenge ➡️</Text>
+            <Text style={styles.buttonText}>Start Challenge</Text>
           </TouchableOpacity>
         </View>
       ))}
@@ -70,18 +74,19 @@ const styles = StyleSheet.create({
     marginTop: 36,
     backgroundColor: "#F3F4F6",
     flex: 1,
-    paddingBottom: 24, // Added bottom padding to avoid overlap
+    paddingBottom: 24,
   },
   header: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 16,
+    marginBottom: 12,
   },
   card: {
     backgroundColor: "white",
     borderRadius: 12,
     padding: 16,
-    marginBottom: 16,
+    marginBottom: 4,
+    marginTop: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
@@ -133,5 +138,10 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontWeight: "600",
     fontSize: 14,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#D1D5DB",
+    marginVertical: 8,
   },
 });

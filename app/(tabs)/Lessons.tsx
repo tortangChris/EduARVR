@@ -22,6 +22,8 @@ const Lessons = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Interactive Algorithm Learning</Text>
 
+      <View style={styles.divider} />
+
       {lessonData.map((lesson, index) => (
         <View key={index} style={styles.card}>
           <View style={styles.cardContent}>
@@ -53,13 +55,14 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 16,
+    marginBottom: 12,
   },
   card: {
     backgroundColor: "white",
     borderRadius: 12,
     padding: 16,
-    marginBottom: 16,
+    marginBottom: 4,
+    marginTop: 12,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
@@ -92,5 +95,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#22C55E",
     marginLeft: 8,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#D1D5DB",
+    marginVertical: 8,
   },
 });
