@@ -4,11 +4,15 @@ import React from "react";
 const Explore = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Personal Information</Text>
+      <View style={styles.header}>
+        <Text style={styles.header}>Personal Information</Text>
+      </View>
+
+      <View style={styles.divider} />
 
       <View style={styles.profileContainer}>
         <View style={styles.avatarPlaceholder} />
-        <Text style={styles.name}>Juan</Text>
+        <Text style={styles.name}>Juan Dela Cruz</Text>
       </View>
 
       <View style={styles.infoCard}>
@@ -48,50 +52,58 @@ export default Explore;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 18,
+    flex: 1,
+    padding: 16,
     marginTop: 36,
     backgroundColor: "#fff",
-    flex: 1,
   },
-  heading: {
+  header: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 16,
-    alignSelf: "center",
+    marginBottom: 4,
+  },
+  heading: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 20,
+    color: "#333",
   },
   profileContainer: {
     alignItems: "center",
-    marginBottom: 24,
+    marginBottom: 20,
   },
   avatarPlaceholder: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: "#d1d5db", // Tailwind gray-300 equivalent
-    marginBottom: 12,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#d1d5db",
+    marginBottom: 8,
   },
   name: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "600",
+    color: "#333",
   },
   infoCard: {
     backgroundColor: "#f9f9f9",
-    padding: 16,
+    padding: 12,
     borderRadius: 8,
     marginBottom: 12,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
   },
   label: {
-    fontSize: 12,
+    fontSize: 14,
     color: "#777",
+    marginBottom: 4,
   },
   value: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "500",
-    marginTop: 4,
+    color: "#333",
   },
   link: {
     color: "#007AFF",
@@ -100,19 +112,19 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     backgroundColor: "#2e7d32",
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 8,
     alignItems: "center",
-    marginTop: 24,
+    marginTop: 20,
   },
   saveButtonText: {
     color: "#fff",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: 14,
   },
   logoutButton: {
     backgroundColor: "#d32f2f",
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 8,
     alignItems: "center",
     marginTop: 12,
@@ -120,6 +132,11 @@ const styles = StyleSheet.create({
   logoutButtonText: {
     color: "#fff",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: 14,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#D1D5DB",
+    marginVertical: 8,
   },
 });

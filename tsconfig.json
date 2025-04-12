@@ -2,6 +2,8 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "esModuleInterop": true, // Tinutulungan nito ang mga import na gumana nang maayos
+    "resolveJsonModule": true, // Para magamit ang mga JSON imports
     "paths": {
       "@/*": ["./*"]
     }

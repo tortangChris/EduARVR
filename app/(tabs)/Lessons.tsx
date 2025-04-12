@@ -1,25 +1,43 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const Lessons = () => {
+  const navigation = useNavigation();
+
   const lessonData = [
     {
       title: "Introduction to Algorithms",
       status: "Completed",
-    },
-    {
-      title: "Searching Algorithms",
-      status: "Completed",
+      route: "IntroductionToAlgorithms",
     },
     {
       title: "Sorting Algorithms",
       status: "Completed",
+      route: "SortingAlgorithms",
+    },
+    {
+      title: "Searching Algorithms",
+      status: "Completed",
+      route: "SearchingAlgorithms",
+    },
+    {
+      title: "Graph Algorithms",
+      status: "Completed",
+      route: "GraphAlgorithms",
     },
   ];
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.header}>Interactive Algorithm Learning</Text>
 
       <View style={styles.divider} />
@@ -35,11 +53,14 @@ const Lessons = () => {
               <Text style={styles.lessonTitle}>{lesson.title}</Text>
               <Text style={styles.lessonStatus}>{lesson.status}</Text>
             </View>
-            <IconSymbol name="arrow.right" color="#22C55E" size={20} />
+
+            <TouchableOpacity onPress={() => navigation.navigate(lesson.route)}>
+              <IconSymbol name="arrow.right" color="#22C55E" size={20} />
+            </TouchableOpacity>
           </View>
         </View>
       ))}
-    </View>
+    </ScrollView>
   );
 };
 

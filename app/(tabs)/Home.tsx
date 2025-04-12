@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 
@@ -8,7 +15,7 @@ const HomePage = () => {
   const progressPercentage = 100;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Top Bar */}
       <View style={styles.topBar}>
         <Text style={styles.title}>EduAR</Text>
@@ -50,14 +57,14 @@ const HomePage = () => {
       <View style={styles.divider} />
 
       {/* Quick Start */}
-      <Text style={styles.quickStartTitle}>Quick Start</Text>
-      <View style={styles.quickStartGrid}>
-        {[1, 2, 3, 4].map((_, index) => (
-          <View key={index} style={styles.quickItem}>
-            <Text>Not Available.</Text>
-          </View>
-        ))}
-      </View>
+      <Text style={styles.quickStartTitle}>Mode</Text>
+      {/* Add AR Mode Button */}
+      <TouchableOpacity
+        style={styles.arButton}
+        onPress={() => navigation.navigate("ARMode" as never)} // navigate to AR mode screen
+      >
+        <Text style={styles.arButtonText}>Augmented Reality</Text>
+      </TouchableOpacity>
 
       {/* Recent Activity */}
       <View style={styles.activityContainer}>
@@ -93,11 +100,10 @@ const HomePage = () => {
               <Text style={styles.activityHeading}>---</Text>
               <Text style={styles.activitySub}>--</Text>
             </View>
-            {/* <IconSymbol name="arrow.right" color="#D1D5DB" size={20} /> */}
           </View>
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -115,7 +121,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 18,
+    padding: 16,
     marginTop: 36,
     flex: 1,
     backgroundColor: "#F9FAFB",
@@ -135,7 +141,7 @@ const styles = StyleSheet.create({
     color: "#4B5563",
   },
   progressSection: {
-    backgroundColor: "#2563EB",
+    backgroundColor: "#9047FF",
     borderRadius: 12,
     padding: 20,
     marginBottom: 16,
@@ -164,7 +170,7 @@ const styles = StyleSheet.create({
     borderColor: "#E5E7EB",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#3B82F6",
+    backgroundColor: "#a66dfc",
   },
   circleText: {
     color: "white",
@@ -196,6 +202,19 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 12,
     alignItems: "center",
+  },
+  arButton: {
+    width: "100%",
+    backgroundColor: "#4CAF50", // Green color for AR Mode button
+    borderRadius: 12,
+    paddingVertical: 20,
+    marginBottom: 12,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  arButtonText: {
+    color: "white",
+    fontWeight: "bold",
   },
   activityContainer: {
     backgroundColor: "white",

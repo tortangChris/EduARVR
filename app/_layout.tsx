@@ -37,7 +37,8 @@ export default function RootLayout() {
       <View style={{ flex: 1, marginBottom: 6 }}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
+          <Stack.Screen name="Log In" />
+          <Stack.Screen name="Settings" />
         </Stack>
         <StatusBar style="auto" />
       </View>
